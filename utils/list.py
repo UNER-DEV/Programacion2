@@ -5,6 +5,16 @@ def quitarRepetidos(data):
             result.append(item)
     return result
 
+def obtenerRepetidos(data):
+    result = []
+    data.sort()
+    for i in range(1,len(data)):
+        if data[i] == data[i-1]:
+            result.append(data[i])
+    return result
+
+
+
 # def ordenarLista(lista):
 #     for i in range(1,len(lista)):
 #         for j in range(0,len(lista)-i):
