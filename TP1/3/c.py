@@ -14,7 +14,7 @@
 #     a or b'
 #
 
-from os import system
+from modules.utils import *
 
 def procesar_sentencias(a, b, c):
     print("i.    (a or b) or (b and c)    => Resultado: %s" % (a or b))
@@ -30,14 +30,14 @@ def entrada_de_usuario():
             print("Error: ingreso incorrecto")
         else:
             break
-    system("cls")
+    clear()
     return entrada == '1'
 
-system("cls")
+clear()
 #bucle para probar el programa varias veces
 while True:
     if str(input("Desea ingresar valores para evaluar las expresiones booleanas?('s' o 'n'): ")).lower() == "s":
-        system("cls")
+        clear()
         #ingreso de datos por el usuario
         print("1er entrada:")
         entrada1 = entrada_de_usuario()

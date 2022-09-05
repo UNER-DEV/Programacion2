@@ -1,7 +1,8 @@
 import re
 import time
-from funciones import *
+from modules.utils import *
 
+clear()
 # ingreso de datos del usuario
 nombre = input("Ingrese su nombre: ")
 while True:

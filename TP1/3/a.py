@@ -1,4 +1,4 @@
-from os import system
+from modules.utils import *
 import re
 
 def suma(numero):
@@ -7,11 +7,11 @@ def suma(numero):
         total += i
     return total
 
-system("cls")
+clear()
 #bucle para probar el programa varias veces
 while True:
     if str(input("Desea hacer una suma?('s' o 'n'): ")).lower() == "s":
-        system("cls")
+        clear()
         #ingreso de datos por el usuario
         while True:
             entrada = input("Ingrese un numero entero 'n' para hacer la sumatoria de 1 hasta 'n': ")

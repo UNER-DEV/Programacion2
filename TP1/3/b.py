@@ -1,4 +1,4 @@
-from os import system
+from modules.utils import *
 import re
 
 def fibonacci(numero):
@@ -16,11 +16,11 @@ def fibonacci(numero):
                 a = total
     return total
 
-system("cls")
+clear()
 #bucle para probar el programa varias veces
 while True:
     if str(input("Desea hacer la secuencia de Fibonacci?('s' o 'n'): ")).lower() == "s":
-        system("cls")
+        clear()
         #ingreso de datos por el usuario
         while True:
             entrada = input("Ingrese un numero entero 'n' para hacer la secuencia de Fibonacci de 1 hasta 'n': ")
