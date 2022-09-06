@@ -17,9 +17,7 @@ def numeros_par_impar(entrada):
             entrada.remove(num)
     print(f"Lista original sin los numeros impares: {entrada}")
     print(f"Nueva lista con los numeros impares: {impares}")
-    
-
 
 
 #Test:
-numeros_par_impar([1,2,3,4,5,6,7,8,9])
+#numeros_par_impar([1,2,3,4,5,6,7,8,9])

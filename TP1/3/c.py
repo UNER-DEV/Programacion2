@@ -1,3 +1,9 @@
+# Tal como sucede con la lógica proposicional, en Python muchas veces las expresiones booleanas pueden ser simplificadas manteniendo
+# el valor de verdad de la expresión. Así, por ejemplo, (a and b) or (b and a) es equivalente a a and b.
+# A continuación, intente simplificar las siguientes expresiones y escriba un procedimiento procesar_sentencias(a, b, c) 
+# que permita evaluar el valor de verdad de las expresiones ya simplificadas:
+
+## SIMPLIFICACIÓN DE LAS EXPRESIONES:
 # i. (a or b) or (b and c)
 #    a or (b or (b and c))
 #    a or b
@@ -12,7 +18,6 @@
 #
 # iv. a == True or b == False
 #     a or b'
-#
 
 from modules.utils import *
 
@@ -23,7 +28,6 @@ def procesar_sentencias(a, b, c):
     print("iv.   a == True or b == False  => Resultado: %s" % (a or not b))
 
 def entrada_de_usuario():
-    
     while True:
         entrada = input(">> Ingrese 1 (True) o 0 (False): ")
         if entrada != '0' and entrada != '1' :
@@ -36,7 +40,8 @@ def entrada_de_usuario():
 clear()
 #bucle para probar el programa varias veces
 while True:
-    if str(input("Desea ingresar valores para evaluar las expresiones booleanas?('s' o 'n'): ")).lower() == "s":
+    msg = checkInputSiNo('\nDesea ingresar valores para evaluar las expresiones booleanas?')
+    if msg == "si":
         clear()
         #ingreso de datos por el usuario
         print("1er entrada:")

@@ -15,4 +15,4 @@ def palabra_no_tiene_letras(palabra, letras_prohibidas):
 
 
 #Test:
-palabra_no_tiene_letras("GatO", ["u","b","e"])
+#palabra_no_tiene_letras("GatO", ["u","b","e"])

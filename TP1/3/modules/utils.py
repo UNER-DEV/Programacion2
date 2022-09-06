@@ -9,3 +9,4 @@ rutaProgramacion2 = os.path.dirname(rutaTP)     # Programacion2
 sys.path.append(rutaProgramacion2)              # Modifica la ruta actual
 
 from utils.console import *
+from utils.strings import *

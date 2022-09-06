@@ -14,19 +14,10 @@
 # AbC.1 23 es válida: False
 # ÁbC.123 es válida: False
 
-from os import system
+from modules.utils import *
 import re
-#{6-20}
-'''
-def contrasena_valida(contrasena):
-    val=re.compile('.[A-Z]{2,}?')
-    if val.match(contrasena):
-        print("vamoloco")
-    else:
-        print("noentro wey")
 
-#Test:
-contrasena_valida("AbC")'''
+
 
 def contrasena_valida(entrada):
     if(len(entrada)>=6 and len(entrada)<= 20):
@@ -43,30 +34,24 @@ def contrasena_valida(entrada):
         # espacios en blanco
         if len(re.findall(r'\s',entrada)) > 0:
             respuesta = False
-        # suma de caracteres mas especiales igual al total?
-        if len(re.findall(r'[A-Za-z0-9]',entrada))+len(re.findall("[$&+,:;=?@#|<>.^*()%!-]",entrada)) != len(entrada):
+        # No puede tener tilde
+        #if len(re.findall(r'[A-Za-z0-9]',entrada))+len(re.findall("[$&+,:;=?@#|<>.^*()%!-]",entrada)) != len(entrada):
+        if len(re.findall("[ÁáÉéÍíÓóÚú]",entrada))>0:
             respuesta = False
     else:
         respuesta = False
 
     return respuesta
     
-system("cls")
-password = "abc.123"
-print(contrasena_valida(password))
-password = "Abc.123"
-print(contrasena_valida(password))
-password = "AbC.123"
-print(contrasena_valida(password))
-password = "AbC.1 23"
-print(contrasena_valida(password))
-password = "ÁBC.123"
-print(contrasena_valida(password))
-password = ""
-print(contrasena_valida(password))
-password = "AbC.AbC"
-print(contrasena_valida(password))
-password = "AbCqAbC"
-print(contrasena_valida(password))
-password = "AbC.123AbC.123AbC.123AbC.123AbC.123"
-print(contrasena_valida(password))
+
+
+#Test:
+print(contrasena_valida("abc.123"))
+print(contrasena_valida("Abc.123"))
+print(contrasena_valida("AbC.123"))
+print(contrasena_valida("AbC.1 23"))
+print(contrasena_valida("ÁBC.123"))
+print(contrasena_valida(""))
+print(contrasena_valida("AbC.AbC"))
+print(contrasena_valida("AbCqAbC"))
+print(contrasena_valida("AbC.123AbC.123AbC.123AbC.123AbC.123"))
