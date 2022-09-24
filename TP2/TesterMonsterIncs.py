@@ -20,7 +20,7 @@ class TesterMonstersInc:
                 clear()
                 empresa.agregarMonstruo(Monstruo(name, species))
             if value == '3':
-                value = int(checkNumero(str(input('\nIngrese el valor maximo de energia>> '))))
+                value = int(input('\nIngrese el valor maximo de energia>> '))
                 clear()
                 empresa.obtenerMonstruosByEnegia(value)
             if value == '4':
