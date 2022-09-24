@@ -31,3 +31,10 @@ def checkInputSexo(value):
         if(msg == 'f' or msg == 'm'):
             break
     return msg
+
+def crearOpciones(value):
+    crearCartel(f'Ingrese por consola la opcion deseada:')
+    for op in value:
+        print(f'{value.index(op)+1} - {op}')
+    msg = normalizar(str(input('\n >> ')))
+    return msg

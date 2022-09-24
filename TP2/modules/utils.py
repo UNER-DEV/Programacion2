@@ -10,3 +10,5 @@ sys.path.append(rutaProgramacion2)              # Modifica la ruta actual
 from utils.console import *
 from utils.strings import *
 from utils.numbers import *
+from utils.list import *
+from utils.calendar import *

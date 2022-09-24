@@ -37,6 +37,6 @@ class Monstruo():
     def obtenerEnergia(self):
         return self.__energia
     def __str__(self):
-        return '['+str(self.__nombre)+','+str(self.__especie)+','+str(self.__energia)+']'
+        return '[El monstruo '+str(self.__nombre)+', de especie '+str(self.__especie)+', tiene '+str(self.__energia)+' de energia]'
     
 

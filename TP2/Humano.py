@@ -19,4 +19,4 @@ class Humano():
     def obtenerEstadoAsustado(self):
         return self.__estadoAsustado
     def __str__(self):
-        return '['+str(self.__nombre)+','+str(self.__estadoAsustado)+']'
+        return '[El Humano '+str(self.__nombre)+', ' + ("esta" if (self.__estadoAsustado) else "no esta") +' asustado]'
