@@ -1,7 +1,8 @@
 from Humano import *
 from Monstruo import *
+from modules.utils import *
 
-class MonsterInc():
+class MonstersInc():
     # método de inicialización
     def __init__(self):
         self.__monstruos = [] 
@@ -41,50 +42,46 @@ class MonsterInc():
 
     #Servicio generalizado para no repetir codigo
     def obtenerHumanosByFiltro(self,filtro,value):
+        result = []
         for hum in self.__humanos:
             if(filtro == 'Estado'):
                 if(hum.obtenerEstadoAsustado() == value):
-                    print(hum)
+                    result.append(hum)
             #En caso de no haber filtro
             else:
+                result.append(hum)
+        clear()
+        if(len(result) == 0):
+            print('No se encontraron Humanos')
+        else:
+            for hum in result:
                 print(hum)
     
     #Servicio generalizado para no repetir codigo
     def obtenerMonstruosByFiltro(self,filtro,value):
+        result = []
         for mon in self.__monstruos:
             if(filtro == 'Energia'):
                 if(mon.obtenerEnergia() < value):
-                    print(mon)
+                    result.append(mon)
             elif(filtro == 'Especie'):
                 if(mon.obtenerEspecie() == value):
-                    print(mon)
+                    result.append(mon)
             #En caso de no haber filtro
             else:
+                result.append(mon)
+        clear()
+        if(len(result) == 0):
+            print('No se encontraron Monstruos')
+        else:
+            for mon in result:
                 print(mon)
     
-    def obtenerMonstruoByEspecie(self,value):
+    def obtenerMonstruosByEspecie(self,value):
         self.obtenerMonstruosByFiltro('Especie',value)
 
-    def obtenerMonstruoByEnegia(self,value):
+    def obtenerMonstruosByEnegia(self,value):
         self.obtenerMonstruosByFiltro('Energia',value)
 
     def obtenerHumanosByEstado(self,value):
         self.obtenerHumanosByFiltro('Estado',value)
-
-sullivan = Monstruo('James P. Sullivan', 'leon')
-mike = Monstruo('Mike Wazowski', 'ciclope')
-boo = Humano('Boo')
-sullivan2 = Monstruo('James P. Sullivan', 'leon')
-empresaMonster = MonsterInc()
-empresaMonster.agregarHumano(boo)
-empresaMonster.agregarMonstruo(mike)
-empresaMonster.agregarMonstruo(sullivan)
-empresaMonster.obtenerHumanos()
-empresaMonster.obtenerMonstruos()
-#sullivan2.establecerEnergia(75)
-#empresaMonster.agregarMonstruo(sullivan2)
-#boo.establecerEstadoAsustado(True)
-#empresaMonster.agregarMonstruo(boo)
-#empresaMonster.eliminarMonstruo(boo)
-#empresaMonster.obtenerMonstruoByEnegia(101)
-#empresaMonster.obtenerMonstruoByEnegia(80)
