@@ -1,0 +1,382 @@
+{
+    "artistas": [
+        {
+            "id": "b8ac5230-107d-45c4-9177-215a199b6b8a",
+            "nombre": "Babasonicos",
+            "tipo": "banda",
+            "integrantes": [
+                {
+                    "nombre": "Adrian Dargelos Rodriguez",
+                    "instrumentos": "Voz principal"
+                },
+                {
+                    "nombre": "Diego Uma Rodriguez",
+                    "instrumentos": "Guitarras, coros y percusion"
+                },
+                {
+                    "nombre": "Diego Uma-T Tunon",
+                    "instrumentos": "Teclados"
+                },
+                {
+                    "nombre": "Diego Panza Castellanos",
+                    "instrumentos": "Bateria"
+                },
+                {
+                    "nombre": "Mariano Roger Dominguez",
+                    "instrumentos": "Guitarras y voz"
+                }
+            ],
+            "genero": "dea0d5e1-4eeb-40ae-9614-cad44fb4651e"
+        },
+        {
+            "id": "532d2481-fd0c-4c3d-bc3c-971673fe4932",
+            "nombre": "Lady Gaga",
+            "tipo": "solista",
+            "genero": "dea0d5e1-4eeb-40ae-9614-cad44fb4651e"
+        },
+        {
+            "id": "1d7c4aa6-aa85-4fb0-9b31-d9b9a0e1314b",
+            "nombre": "Duki",
+            "tipo": "solista",
+            "genero": "0a8d435e-a579-4bee-a769-490d532e23ff"
+        }
+    ],
+    "albumes": [
+        {
+            "id": "1da2004f-be88-4cd3-93be-1442fbbd78a1",
+            "artista": "b8ac5230-107d-45c4-9177-215a199b6b8a",
+            "nombre": "Trinchera",
+            "anio": "2022",
+            "genero": "dea0d5e1-4eeb-40ae-9614-cad44fb4651e",
+            "canciones": [
+                {
+                    "id": "5219b4f9-6205-43a8-91ca-c22c7effad48",
+                    "orden": 1
+                },
+                {
+                    "id": "2071bfac-dd73-44e0-80a6-260fc48af105",
+                    "orden": 2
+                },
+                {
+                    "id": "316ae44b-16d8-4490-9be1-016e6415d289",
+                    "orden": 3
+                },
+                {
+                    "id": "2b41a46f-9ac8-46ff-a67d-8a4bc9cf83a9",
+                    "orden": 4
+                },
+                {
+                    "id": "ab58b8e2-a270-42c9-9e20-7f749131691c",
+                    "orden": 5
+                },
+                {
+                    "id": "0ab085ae-28aa-4b7d-ab0e-b409dd602dd5",
+                    "orden": 6
+                },
+                {
+                    "id": "46896ac7-1674-42f7-b4ea-75c7f90c0662",
+                    "orden": 7
+                },
+                {
+                    "id": "e451502c-b45e-4e7d-a1d2-0d787a2f71cf",
+                    "orden": 8
+                },
+                {
+                    "id": "eb64c97a-b8f6-48ff-909d-b6947f556e31",
+                    "orden": 9
+                },
+                {
+                    "id": "a1ac04ac-af1d-453b-bf4f-adeda7464227",
+                    "orden": 10
+                },
+                {
+                    "id": "1429d614-feb4-4403-9e7d-dd9be1439a1e",
+                    "orden": 11
+                }
+            ]
+        },
+        {
+            "id": "d9fb011e-ba06-47e3-a59d-0bed8d3b1d55",
+            "artista": "532d2481-fd0c-4c3d-bc3c-971673fe4932",
+            "nombre": "Joanne",
+            "anio": "2016",
+            "genero": "dea0d5e1-4eeb-40ae-9614-cad44fb4651e",
+            "canciones": [
+                {
+                    "id": "c2f36517-ab46-42cf-9217-194b8bc2e900",
+                    "orden": 1
+                },
+                {
+                    "id": "a368e43e-0da8-4802-8e55-63ffec8191ef",
+                    "orden": 2
+                },
+                {
+                    "id": "c3239dc7-5506-4d49-bff1-d94c0e18d119",
+                    "orden": 3
+                },
+                {
+                    "id": "e6e48530-d702-490a-9396-9c4d33c4ed4d",
+                    "orden": 4
+                },
+                {
+                    "id": "51b3fa57-0ec6-446d-ae3f-a7ed2d902cc6",
+                    "orden": 5
+                },
+                {
+                    "id": "0f0f3069-6e60-467e-a317-437812460d5d",
+                    "orden": 6
+                },
+                {
+                    "id": "d2c30d1c-f122-42a9-9923-43e3af17353e",
+                    "orden": 7
+                },
+                {
+                    "id": "0542ef11-6727-432b-95ed-3ac585372f06",
+                    "orden": 8
+                },
+                {
+                    "id": "1f1c0eca-3755-4789-b526-42c9089bee08",
+                    "orden": 9
+                },
+                {
+                    "id": "07295cf0-4b0d-4b3a-aa4a-5b3f77deba0a",
+                    "orden": 10
+                },
+                {
+                    "id": "79916a3c-682d-4473-8f62-b91e89cffe50",
+                    "orden": 11
+                },
+                {
+                    "id": "d9dfd682-9d21-4b6a-9a25-0003d1ebc855",
+                    "orden": 12
+                },
+                {
+                    "id": "2d0f9909-c4f1-44d0-b770-e54f42f182c0",
+                    "orden": 13
+                },
+                {
+                    "id": "475a672b-c3fa-48bb-9ca8-f7f49148b740",
+                    "orden": 14
+                }
+            ]
+        },
+        {
+            "id": "be94227c-5981-428b-b424-478d86d8ee26",
+            "artista": "1d7c4aa6-aa85-4fb0-9b31-d9b9a0e1314b",
+            "nombre": "Temporada de Reggaeton 2",
+            "anio": "2022",
+            "genero": "0a8d435e-a579-4bee-a769-490d532e23ff",
+            "canciones": [
+                {
+                    "id": "4ebd6783-1d8f-47ab-a433-b3664bf49c9c",
+                    "orden": 1
+                },
+                {
+                    "id": "48379e6a-49fb-466e-9682-a7ceec0bf882",
+                    "orden": 2
+                },
+                {
+                    "id": "23a2ce01-ad69-43f5-b7d6-8f54d8489abc",
+                    "orden": 3
+                },
+                {
+                    "id": "11ceee6d-331c-4d27-b990-1d746948aa9b",
+                    "orden": 4
+                },
+                {
+                    "id": "0c8ca266-f495-4eae-8025-bc92871652f1",
+                    "orden": 5
+                },
+                {
+                    "id": "1879295f-3ba0-4b15-853f-652381febe63",
+                    "orden": 6
+                },
+                {
+                    "id": "920c3d1f-8683-4c3c-9f2e-88751532b7e4",
+                    "orden": 7
+                },
+                {
+                    "id": "e3646bf5-3c6a-4609-8192-3ed991f84f89",
+                    "orden": 8
+                }
+            ]
+        }
+    ],
+    "canciones": [
+        {
+            "id": "5219b4f9-6205-43a8-91ca-c22c7effad48",
+            "nombre": "Mimos son Mimos",
+            "artista": "b8ac5230-107d-45c4-9177-215a199b6b8a"
+        },
+        {
+            "id": "2071bfac-dd73-44e0-80a6-260fc48af105",
+            "nombre": "Paradoja",
+            "artista": "b8ac5230-107d-45c4-9177-215a199b6b8a"
+        },
+        {
+            "id": "316ae44b-16d8-4490-9be1-016e6415d289",
+            "nombre": "Bye Bye",
+            "artista": "b8ac5230-107d-45c4-9177-215a199b6b8a"
+        },
+        {
+            "id": "2b41a46f-9ac8-46ff-a67d-8a4bc9cf83a9",
+            "nombre": "Vacio",
+            "artista": "b8ac5230-107d-45c4-9177-215a199b6b8a"
+        },
+        {
+            "id": "ab58b8e2-a270-42c9-9e20-7f749131691c",
+            "nombre": "Anubis",
+            "artista": "b8ac5230-107d-45c4-9177-215a199b6b8a"
+        },
+        {
+            "id": "0ab085ae-28aa-4b7d-ab0e-b409dd602dd5",
+            "nombre": "La Izquierda de la Noche",
+            "artista": "b8ac5230-107d-45c4-9177-215a199b6b8a"
+        },
+        {
+            "id": "46896ac7-1674-42f7-b4ea-75c7f90c0662",
+            "nombre": "Mentira Nordica",
+            "artista": "b8ac5230-107d-45c4-9177-215a199b6b8a"
+        },
+        {
+            "id": "e451502c-b45e-4e7d-a1d2-0d787a2f71cf",
+            "nombre": "Madera Ideologica",
+            "artista": "b8ac5230-107d-45c4-9177-215a199b6b8a"
+        },
+        {
+            "id": "eb64c97a-b8f6-48ff-909d-b6947f556e31",
+            "nombre": "Viento y Marea",
+            "artista": "b8ac5230-107d-45c4-9177-215a199b6b8a"
+        },
+        {
+            "id": "a1ac04ac-af1d-453b-bf4f-adeda7464227",
+            "nombre": "Capital Afectivo",
+            "artista": "b8ac5230-107d-45c4-9177-215a199b6b8a"
+        },
+        {
+            "id": "1429d614-feb4-4403-9e7d-dd9be1439a1e",
+            "nombre": "Lujo",
+            "artista": "b8ac5230-107d-45c4-9177-215a199b6b8a"
+        },
+        {
+            "id": "c2f36517-ab46-42cf-9217-194b8bc2e900",
+            "nombre": "Diamond Heart",
+            "artista": "532d2481-fd0c-4c3d-bc3c-971673fe4932"
+        },
+        {
+            "id": "a368e43e-0da8-4802-8e55-63ffec8191ef",
+            "nombre": "A-YO",
+            "artista": "532d2481-fd0c-4c3d-bc3c-971673fe4932"
+        },
+        {
+            "id": "c3239dc7-5506-4d49-bff1-d94c0e18d119",
+            "nombre": "Joanne",
+            "artista": "532d2481-fd0c-4c3d-bc3c-971673fe4932"
+        },
+        {
+            "id": "e6e48530-d702-490a-9396-9c4d33c4ed4d",
+            "nombre": "John Wayne",
+            "artista": "532d2481-fd0c-4c3d-bc3c-971673fe4932"
+        },
+        {
+            "id": "51b3fa57-0ec6-446d-ae3f-a7ed2d902cc6",
+            "nombre": "Dancin' In Circles",
+            "artista": "532d2481-fd0c-4c3d-bc3c-971673fe4932"
+        },
+        {
+            "id": "0f0f3069-6e60-467e-a317-437812460d5d",
+            "nombre": "Perfect Illusion",
+            "artista": "532d2481-fd0c-4c3d-bc3c-971673fe4932"
+        },
+        {
+            "id": "d2c30d1c-f122-42a9-9923-43e3af17353e",
+            "nombre": "Million Reasons",
+            "artista": "532d2481-fd0c-4c3d-bc3c-971673fe4932"
+        },
+        {
+            "id": "0542ef11-6727-432b-95ed-3ac585372f06",
+            "nombre": "Sinner's Prayer",
+            "artista": "532d2481-fd0c-4c3d-bc3c-971673fe4932"
+        },
+        {
+            "id": "1f1c0eca-3755-4789-b526-42c9089bee08",
+            "nombre": "Come To Mama",
+            "artista": "532d2481-fd0c-4c3d-bc3c-971673fe4932"
+        },
+        {
+            "id": "07295cf0-4b0d-4b3a-aa4a-5b3f77deba0a",
+            "nombre": "Hey Girl",
+            "artista": "532d2481-fd0c-4c3d-bc3c-971673fe4932"
+        },
+        {
+            "id": "79916a3c-682d-4473-8f62-b91e89cffe50",
+            "nombre": "Angel Down",
+            "artista": "532d2481-fd0c-4c3d-bc3c-971673fe4932"
+        },
+        {
+            "id": "d9dfd682-9d21-4b6a-9a25-0003d1ebc855",
+            "nombre": "Grigio Girls",
+            "artista": "532d2481-fd0c-4c3d-bc3c-971673fe4932"
+        },
+        {
+            "id": "2d0f9909-c4f1-44d0-b770-e54f42f182c0",
+            "nombre": "Just Another Day",
+            "artista": "532d2481-fd0c-4c3d-bc3c-971673fe4932"
+        },
+        {
+            "id": "475a672b-c3fa-48bb-9ca8-f7f49148b740",
+            "nombre": "Angel Down - Work Tape",
+            "artista": "532d2481-fd0c-4c3d-bc3c-971673fe4932"
+        },
+        {
+            "id": "4ebd6783-1d8f-47ab-a433-b3664bf49c9c",
+            "nombre": "Amor Bipolar",
+            "artista": "1d7c4aa6-aa85-4fb0-9b31-d9b9a0e1314b"
+        },
+        {
+            "id": "48379e6a-49fb-466e-9682-a7ceec0bf882",
+            "nombre": "Celosa",
+            "artista": "1d7c4aa6-aa85-4fb0-9b31-d9b9a0e1314b"
+        },
+        {
+            "id": "23a2ce01-ad69-43f5-b7d6-8f54d8489abc",
+            "nombre": "Perreo Bendito",
+            "artista": "1d7c4aa6-aa85-4fb0-9b31-d9b9a0e1314b"
+        },
+        {
+            "id": "11ceee6d-331c-4d27-b990-1d746948aa9b",
+            "nombre": "Si Quieren Frontear",
+            "artista": "1d7c4aa6-aa85-4fb0-9b31-d9b9a0e1314b"
+        },
+        {
+            "id": "0c8ca266-f495-4eae-8025-bc92871652f1",
+            "nombre": "Esto Recien Empieza",
+            "artista": "1d7c4aa6-aa85-4fb0-9b31-d9b9a0e1314b"
+        },
+        {
+            "id": "1879295f-3ba0-4b15-853f-652381febe63",
+            "nombre": "Antes de Perderte",
+            "artista": "1d7c4aa6-aa85-4fb0-9b31-d9b9a0e1314b"
+        },
+        {
+            "id": "920c3d1f-8683-4c3c-9f2e-88751532b7e4",
+            "nombre": "\"La Vuelta\"",
+            "artista": "1d7c4aa6-aa85-4fb0-9b31-d9b9a0e1314b"
+        },
+        {
+            "id": "e3646bf5-3c6a-4609-8192-3ed991f84f89",
+            "nombre": "GIVENCHY",
+            "artista": "1d7c4aa6-aa85-4fb0-9b31-d9b9a0e1314b"
+        }
+    ],
+    "generos": [
+        {
+            "id": "dea0d5e1-4eeb-40ae-9614-cad44fb4651e",
+            "nombre": "pop"
+        },
+        {
+            "id": "0a8d435e-a579-4bee-a769-490d532e23ff",
+            "nombre": "trap"
+        }
+    ]
+}
