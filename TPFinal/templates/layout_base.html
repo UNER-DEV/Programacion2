@@ -1,0 +1,50 @@
+<!--NAVBAR CON:
+TODOS por url ordenar desc o asc
+* Artistas
+* Albums
+* Canciones
+-->
+
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{%block title%} {%endblock%}</title>
+    {% block plugins %}
+    {% endblock %}
+    <link href="{{ url_for('static', filename='/css/bootstrap.css') }}" rel="stylesheet">
+    <link href="../static/css/index.css" rel="stylesheet" defer/>
+    <link href="../static/css/all.css" rel="stylesheet" defer/>
+</head>
+<body>
+<!--Header(Navbar)-->
+<header class="p-2 mb-2 border-bottom bg-navbar">
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a class="py-2" href="#" aria-label="home">
+                <img src="{{ url_for('static', filename='/svgs/own/cd.svg') }}" width="24" height="24"
+                     class="d-block mx-auto"/>
+            </a>
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li><a href="/api/artistas" class="nav-link px-2 text-decoration-none text-white">Artistas</a></li>
+                <li><a href="/api/albumes" class="nav-link px-2 text-decoration-none text-white ">Albums</a></li>
+                <li><a href="/api/canciones" class="nav-link px-2 text-decoration-none text-white ">Canciones</a></li>
+            </ul>
+            <!--FALTA ACOMODAR ICONO SEARCH-->
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                <div class="d-flex align-items-center justify-items-around">
+                <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+                <a class="text-white w-100 me-3 justify-self-center" type="submit">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </a></div>
+            </form>
+        </div>
+    </div>
+</header> <!--header-end-->
+
+<h1>El nuevo spotify wey</h1>
+{% block body %}{% endblock %}
+
+</body>
+</html>
