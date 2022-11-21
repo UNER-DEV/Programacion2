@@ -17,12 +17,14 @@ class Biblioteca:
     __canciones = []
     __albumes = []
     __generos = []
+    datos = []
 
     def inicializar():
         datos = Biblioteca.__parsearArchivoDeDatos()
         Biblioteca.__convertirJsonAListas(datos)
 
     def obtenerArtistas(orden=None, reverso=False):
+        datos = Biblioteca.__parsearArchivoDeDatos()
         __artistas = datos["artistas"]
         if isinstance(orden, str):
             if orden == 'nombre':

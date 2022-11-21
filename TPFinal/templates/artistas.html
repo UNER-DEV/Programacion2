@@ -26,9 +26,11 @@
         {%for i in range(0, len)%}
         <tr>
             <th scope="row">{{ data [i]['nombre'] }}</th>
-            <td>tipo</td>
-            <td>nombre</td>
+            <td>{{ data [i]['tipo'] }}</td>
+            {%for x in range(0, len(data[i]['integrantes']))%}
+            <td>{{ data[i]['integrantes'][x] }}</td>
             <td>instrumentos</td>
+            {%endfor%}
         </tr>
         {%endfor%}
         </tbody>
