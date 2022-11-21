@@ -23,12 +23,13 @@ class Biblioteca:
         Biblioteca.__convertirJsonAListas(datos)
 
     def obtenerArtistas(orden=None, reverso=False):
+        __artistas = datos["artistas"]
         if isinstance(orden, str):
             if orden == 'nombre':
-                pass
+                __artistas = sorted(__artistas, key=itemgetter('nombre'),reverse=reverso )
             elif orden == 'tipo':
-                pass
-        pass
+                __artistas = sorted(__artistas, key=itemgetter('tipo'),reverse=reverso )
+        return __artistas
 
     def obtenerCanciones(orden=None, reverso=False):
         if isinstance(orden, str):

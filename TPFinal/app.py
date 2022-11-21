@@ -17,7 +17,7 @@ def index():
 def getArtistas():
     data = []
     try:
-        data = recursos.RecursoArtista.get()
+        data = recursos.RecursoArtista.get
     except:
         print("JSON Vacio")
     return render_template('artistas.html',data=data, len = len(data))
