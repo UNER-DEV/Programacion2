@@ -55,7 +55,7 @@ class Biblioteca:
         pass
     
     def buscarArtista(id):
-        artists = __parsearArchivoDeDatos["artistas"]
+        artists = datos["artistas"]
         for artist in artists:
             artistId = artist["id"]
             if(artistId == id):
@@ -65,7 +65,7 @@ class Biblioteca:
 
 
     def buscarCancion(id):
-        songs = __parsearArchivoDeDatos["canciones"]
+        songs = datos["canciones"]
         for song in songs:
             songId = song["id"]
             if(songId == id):
@@ -74,7 +74,7 @@ class Biblioteca:
                 return None
     
     def buscarAlbum(id):
-        albums = __parsearArchivoDeDatos["albumes"]
+        albums = datos["albumes"]
         for album in albums:
             albumId = album["id"]
             if(albumId == id):
@@ -84,7 +84,7 @@ class Biblioteca:
 
 
     def buscarGenero(id):
-        genders = __parsearArchivoDeDatos["generos"]
+        genders = datos["generos"]
         for gender in genders:
             genderId = gender["id"]
             if(genderId == id):

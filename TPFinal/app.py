@@ -3,7 +3,6 @@ from flask import Flask, render_template,request
 from flask_restful import Api
 import os
 from biblioteca import Biblioteca
-
 # API
 from recursos import *
 
@@ -16,7 +15,12 @@ def index():
 
 @app.get("/api/artistas")
 def getArtistas():
-    return render_template('artistas.html')
+    data = []
+    try:
+        data = recursos.RecursoArtista.get()
+    except:
+        print("JSON Vacio")
+    return render_template('artistas.html',data=data, len = len(data))
 
 @app.get("/api/albumes")
 def getAlbums():
@@ -37,6 +41,5 @@ if __name__ == '__main__':
     api.add_resource(RecursoAlbumes, '/api/albumes')
     api.add_resource(RecursoCancion, '/api/canciones/<id>')
     api.add_resource(RecursoCanciones, '/api/canciones')
-
     app.run(debug=True)
     #app.run()
