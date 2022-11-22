@@ -13,10 +13,10 @@ from models.genero import Genero
 class Biblioteca:
 
     __archivoDeDatos = "biblioteca.json"
-    __artistas = []
+    artistas = []
     __canciones = []
     __albumes = []
-    __generos = []
+    generos = []
     datos = []
 
     def inicializar():
@@ -24,14 +24,12 @@ class Biblioteca:
         Biblioteca.__convertirJsonAListas(datos)
 
     def obtenerArtistas(orden=None, reverso=False):
-        datos = Biblioteca.__parsearArchivoDeDatos()
-        __artistas = datos["artistas"]
-        if isinstance(orden, str):
-            if orden == 'nombre':
-                __artistas = sorted(__artistas, key=itemgetter('nombre'),reverse=reverso )
-            elif orden == 'tipo':
-                __artistas = sorted(__artistas, key=itemgetter('tipo'),reverse=reverso )
-        return __artistas
+        # if isinstance(orden, str):
+        #     if orden == 'nombre':
+        #         Biblioteca.artistas = sorted(Biblioteca.artistas, key=itemgetter('nombre'),reverse=reverso )
+        #     elif orden == 'tipo':
+        #         Biblioteca.artistas = sorted(Biblioteca.artistas, key=itemgetter('tipo'),reverse=reverso )
+        return Biblioteca.artistas
 
     def obtenerCanciones(orden=None, reverso=False):
         if isinstance(orden, str):
@@ -82,18 +80,15 @@ class Biblioteca:
             albumId = album["id"]
             if(albumId == id):
                 return album
-            else:
-                return None
+        return None
 
 
     def buscarGenero(id):
-        genders = datos["generos"]
-        for gender in genders:
-            genderId = gender["id"]
+        for genero in Biblioteca.generos:
+            genderId = genero.obtenerId()
             if(genderId == id):
-                return gender
-            else:
-               return None
+                return genero
+        return None
 
 
     #obtengo un diccionario con datos del json
@@ -104,4 +99,12 @@ class Biblioteca:
         return dataLocal
 
     def __convertirJsonAListas(lista):
-        pass
+        for genero in lista["generos"]:
+            genre = Genero(genero["id"],genero["nombre"])
+            if(genre not in Biblioteca.generos):
+                Biblioteca.generos.append(genre)
+        for artista in lista["artistas"]:
+            artist = Artista(artista["id"],artista["nombre"],artista["tipo"],Biblioteca.buscarGenero(artista["genero"]),None,None)
+            if(artist not in Biblioteca.artistas):
+                Biblioteca.artistas.append(artist)
+

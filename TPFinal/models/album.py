@@ -1,7 +1,5 @@
 import json
 
-import biblioteca
-
 class Album:
 
     def __repr__(self):

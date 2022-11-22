@@ -15,12 +15,12 @@ def index():
 
 @app.get("/api/artistas")
 def getArtistas():
-    data = Biblioteca.obtenerArtistas()
-    print(data)
-#     try:
-#         data = recursos.RecursoArtista.get
-#     except:
-#         print("JSON Vacio")
+    Biblioteca.inicializar()
+    try:
+        data = Biblioteca.artistas
+        print(data)
+    except:
+        print("JSON Vacio")
     return render_template('artistas.html',data=data, len = len(data))
 
 @app.get("/api/albumes")
