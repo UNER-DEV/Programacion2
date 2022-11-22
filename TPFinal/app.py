@@ -33,7 +33,12 @@ def getAlbums():
 
 @app.get("/api/canciones")
 def getCanciones():
-    return render_template('canciones.html')
+    Biblioteca.inicializar()
+    try:
+        data = Biblioteca.canciones
+    except:
+        print("JSON Vacio")
+    return render_template('canciones.html', data = data, len = len(data))
 
 
 if __name__ == '__main__':
