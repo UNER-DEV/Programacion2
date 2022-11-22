@@ -14,8 +14,8 @@ class Biblioteca:
 
     __archivoDeDatos = "biblioteca.json"
     artistas = []
-    __canciones = []
-    __albumes = []
+    canciones = []
+    albumes = []
     generos = []
     datos = []
 
@@ -37,7 +37,7 @@ class Biblioteca:
                 pass
             elif orden == 'artista':
                 pass
-        pass
+        return Biblioteca.canciones
 
     def obtenerAlbumes(orden=None, reverso=False):
         if isinstance(orden, str):
@@ -47,40 +47,36 @@ class Biblioteca:
                 pass
             elif orden == 'anio':
                 pass
-        pass
+        return Biblioteca.albumes
 
     def obtenerGeneros(orden=None, reverso=False):
         if isinstance(orden, str):
             if orden == 'nombre':
                 pass
-        pass
+        return Biblioteca.generos
     
     def buscarArtista(id):
-        artists = datos["artistas"]
-        for artist in artists:
-            artistId = artist["id"]
+        for artist in Biblioteca.artistas:
+            artistId = artist.obtenerId()
             if(artistId == id):
                 return artist
-            else:
-                return None
+        return None
 
 
     def buscarCancion(id):
-        songs = datos["canciones"]
-        for song in songs:
-            songId = song["id"]
-            if(songId == id):
-                return song
-            else:
-                return None
+        for cancion in Biblioteca.canciones:
+            cancionId = cancion.obtenerId()
+            if(cancionId == id):
+                return cancion
+        return None
     
     def buscarAlbum(id):
-        albums = datos["albumes"]
-        for album in albums:
-            albumId = album["id"]
+        for album in Biblioteca.albumes:
+            albumId = album.obtenerId()
             if(albumId == id):
                 return album
         return None
+
 
 
     def buscarGenero(id):
@@ -99,11 +95,12 @@ class Biblioteca:
         return dataLocal
 
     def __convertirJsonAListas(lista):
+        #Generos
         for genero in lista["generos"]:
             genre = Genero(genero["id"],genero["nombre"])
             if(genre not in Biblioteca.generos):
                 Biblioteca.generos.append(genre)
-        
+        #Artistas
         for artista in lista["artistas"]:
             if(artista["tipo"] == "solista"):
                 artist = Artista(artista["id"], artista["nombre"], artista["tipo"], Biblioteca.buscarGenero(artista["genero"]), None, None)
@@ -114,4 +111,13 @@ class Biblioteca:
                 artist = Banda(artista["id"], artista["nombre"], artista["tipo"], Biblioteca.buscarGenero(artista["genero"]), integrantes, None, None)
             if(artist not in Biblioteca.artistas):
                 Biblioteca.artistas.append(artist)
-
+        #Canciones
+        for cancion in lista["canciones"]:
+            song = Cancion(cancion["id"], cancion["nombre"], Biblioteca.buscarArtista(cancion["artista"]))
+            if(song not in Biblioteca.canciones):
+                Biblioteca.canciones.append(song)
+        #Albumes
+        for album in lista["albumes"]:
+            alb = Album(album["id"], Biblioteca.buscarArtista(album["artista"]), album["nombre"], album["anio"], Biblioteca.buscarGenero(album["genero"]), Biblioteca.obtenerCanciones())
+            if(alb not in Biblioteca.albumes):
+                Biblioteca.generos.append(alb)
