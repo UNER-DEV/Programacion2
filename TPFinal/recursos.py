@@ -21,7 +21,6 @@ class RecursoArtista(Resource):
 
 
 class RecursoArtistas(Resource):
-
     def get(self):
         orden = request.args.get('orden')
         if (orden):
@@ -34,7 +33,6 @@ class RecursoArtistas(Resource):
 
 
 class RecursoAlbum(Resource):
-
     def get(self, id):
         album = biblioteca.Biblioteca.buscarAlbum(id)
         if isinstance(album, Album):
