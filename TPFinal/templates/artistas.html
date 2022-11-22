@@ -9,16 +9,16 @@
                 <h3>Listado de artistas</h3>
             </div>
             <div class="row">
-                {%for i in range(0, len)%}
+                {%for i in data%}
                 <div class="card" style="width: 18rem;">
                     <img src="{{ url_for('static', filename='/img/Lady Gaga.jpg') }}" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">{{ data [i].nombre }}</h5>
-                        {%if data [i]['tipo'] == "solista" %}
-                        <p class="card-text">Cantante: {{ data [i].tipo }}</p>
-                        <p class="card-text">Genero: {{ data [i].genero }}</p>
+                        <h5 class="card-title">{{ i.nombre }}</h5>
+                        {%if i.tipo == "solista" %}
+                        <p class="card-text">Cantante: {{ i.tipo }}</p>
+                        <p class="card-text">Genero: {{ i.genero }}</p>
                         {% else %}
-                        <p class="card-text">Integrantes de la banda: {{ data [i].integrantes }}</p>
+                        <p class="card-text">Integrantes de la banda: {{ i.integrantes }}</p>
                         {% endif %}
                         <a href="#" class="btn btn-primary">Go somewhere</a>
                     </div>
@@ -27,8 +27,6 @@
             </div>
         </div>
     </div>
-
 </div>
-
 
 {%endblock%}
