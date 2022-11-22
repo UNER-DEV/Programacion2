@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('layout_base.html') #Flask busca, por defecto la ruta de las plantillas.
+    return render_template('home.html') #Flask busca, por defecto la ruta de las plantillas.
 
 @app.get("/api/artistas")
 def getArtistas():

@@ -21,29 +21,30 @@ TODOS por url ordenar desc o asc
 </head>
 <body>
 <!--Header(Navbar)-->
-<header class="p-2 mb-4 border-bottom bg-navbar">
-    <div class="container">
+<header class="py-3 mb-4 border-bottom" id="static-navbar">
+    <div class="container col-8 m-auto">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-            <a class="py-2" href="#" aria-label="home">
-                <img src="{{ url_for('static', filename='/svgs/own/cd.svg') }}" width="24" height="24"
-                     class="d-block mx-auto"/>
+            <a class="py-2 me-3 linkRoute" href="/" aria-label="home" >
+                <img src="{{ url_for('static', filename='/svgs/own/cd.svg') }}" 
+                     class="d-block mx-auto" id="logo"/>
             </a>
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="/api/artistas" class="nav-link px-2 text-decoration-none text-white">Artistas</a></li>
-                <li><a href="/api/albumes" class="nav-link px-2 text-decoration-none text-white ">Albums</a></li>
-                <li><a href="/api/canciones" class="nav-link px-2 text-decoration-none text-white ">Canciones</a></li>
+                <li><a href="/api/artistas" class="nav-link px-4 text-decoration-none text-white linkRoute">Artistas</a></li>
+                <li><a href="/api/albumes" class="nav-link px-4 text-decoration-none text-white linkRoute">Albums</a></li>
+                <li><a href="/api/canciones" class="nav-link px-4 text-decoration-none text-white linkRoute">Canciones</a></li>
             </ul>
             <!--FALTA ACOMODAR ICONO SEARCH-->
-            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-                <div class="d-flex align-items-center justify-items-around">
-                <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-                <a class="text-white w-100 me-3 justify-self-center" type="submit">
-                    <i class="fa-solid fa-magnifying-glass"></i>
+            <form class="mb-lg-0 me-lg-3" role="search">
+                <div class="d-flex align-items-center">
+                <input type="search" class="form-control bg-sucess me-3" placeholder="Search..." aria-label="Search">
+                <a class="text-end" type="submit">
+                    <i class="btn btn-light fs-4 fa-solid fa-magnifying-glass disabled"></i>
                 </a></div>
             </form>
         </div>
     </div>
 </header> <!--header-end-->
+
 {% block body %}{% endblock %}
 
 </body>
