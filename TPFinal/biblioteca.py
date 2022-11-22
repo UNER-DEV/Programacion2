@@ -113,7 +113,7 @@ class Biblioteca:
                 Biblioteca.artistas.append(artist)
         #Canciones
         for cancion in lista["canciones"]:
-            song = Cancion(cancion["id"], cancion["nombre"], Biblioteca.buscarArtista(cancion["artista"]),None)
+            song = Cancion(cancion["id"], cancion["nombre"], Biblioteca.buscarArtista(cancion["artista"]), None, None)
             if(song not in Biblioteca.canciones):
                 Biblioteca.canciones.append(song)
         #Albumes
@@ -123,5 +123,8 @@ class Biblioteca:
                 Biblioteca.buscarCancion(cancion["id"]).establecerOrden(str(cancion["orden"]))
                 cancionesAlbum.append(Biblioteca.buscarCancion(cancion["id"]))
             alb = Album(album["id"], Biblioteca.buscarArtista(album["artista"]), album["nombre"], album["anio"], Biblioteca.buscarGenero(album["genero"]), cancionesAlbum)
+            for cancion in cancionesAlbum:
+                cancion.establecerAlbum(alb)
             if(alb not in Biblioteca.albumes):
                 Biblioteca.albumes.append(alb)
+
