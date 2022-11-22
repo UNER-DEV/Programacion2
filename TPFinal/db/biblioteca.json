@@ -4,7 +4,6 @@
             "id": "b8ac5230-107d-45c4-9177-215a199b6b8a",
             "nombre": "Babasonicos",
             "tipo": "banda",
-            "url":"https://i.scdn.co/image/ab67706f00000003e185f5da17b8cbd4f473c318",
             "integrantes": [
                 {
                     "nombre": "Adrian Dargelos Rodriguez",
@@ -33,14 +32,12 @@
             "id": "532d2481-fd0c-4c3d-bc3c-971673fe4932",
             "nombre": "Lady Gaga",
             "tipo": "solista",
-            "url":"https://i.scdn.co/image/ab67706f0000000370e9edc02dfdcbe1eedfca06",
             "genero": "dea0d5e1-4eeb-40ae-9614-cad44fb4651e"
         },
         {
             "id": "1d7c4aa6-aa85-4fb0-9b31-d9b9a0e1314b",
             "nombre": "Duki",
             "tipo": "solista",
-            "url":"https://i.scdn.co/image/ab67706f00000003e28083d6dd937243ad67b49e",
             "genero": "0a8d435e-a579-4bee-a769-490d532e23ff"
         }
     ],

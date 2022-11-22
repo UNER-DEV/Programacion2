@@ -13,9 +13,11 @@ TODOS por url ordenar desc o asc
     <title>{%block title%} {%endblock%}</title>
     {% block plugins %}
     {% endblock %}
-    <link href="{{ url_for('static', filename='/css/bootstrap.css') }}" rel="stylesheet">
-    <link href="../static/css/index.css" rel="stylesheet" defer/>
-    <link href="../static/css/all.css" rel="stylesheet" defer/>
+    <link href="{{ url_for('static', filename='/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='/css/all.css') }}" rel="stylesheet"/>
+    <link href="{{ url_for('static', filename='/js/bootstrap.min.js') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='/js/jquery-3.5.1.js') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='/css/index.css') }}" rel="stylesheet" defer>
 </head>
 <body>
 <!--Header(Navbar)-->

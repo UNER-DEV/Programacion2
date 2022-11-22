@@ -4,11 +4,11 @@ import json
 
 # modelos
 from models.artista import Artista
-#from models.banda import Banda
+from models.banda import Banda
 from models.cancion import Cancion
 from models.album import Album
 from models.genero import Genero
-
+from models.integrante import Integrante
 
 class Biblioteca:
 
@@ -103,8 +103,15 @@ class Biblioteca:
             genre = Genero(genero["id"],genero["nombre"])
             if(genre not in Biblioteca.generos):
                 Biblioteca.generos.append(genre)
+        
         for artista in lista["artistas"]:
-            artist = Artista(artista["id"],artista["nombre"],artista["tipo"],Biblioteca.buscarGenero(artista["genero"]),None,None)
+            if(artista["tipo"] == "solista"):
+                artist = Artista(artista["id"], artista["nombre"], artista["tipo"], Biblioteca.buscarGenero(artista["genero"]), None, None)
+            else:
+                integrantes = []
+                for integrante in artista["integrantes"]:
+                    integrantes.append(Integrante(integrante["nombre"], integrante["instrumentos"]))
+                artist = Banda(artista["id"], artista["nombre"], artista["tipo"], Biblioteca.buscarGenero(artista["genero"]), integrantes, None, None)
             if(artist not in Biblioteca.artistas):
                 Biblioteca.artistas.append(artist)
 

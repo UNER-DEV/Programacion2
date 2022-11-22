@@ -10,17 +10,25 @@
             </div>
             <div class="row">
                 {%for i in data%}
-                <div class="card" style="width: 18rem;">
-                    <img src="{{ url_for('static', filename='/img/Lady Gaga.jpg') }}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ i.nombre }}</h5>
-                        {%if i.tipo == "solista" %}
-                        <p class="card-text">Cantante: {{ i.tipo }}</p>
-                        <p class="card-text">Genero: {{ i.genero }}</p>
-                        {% else %}
-                        <p class="card-text">Integrantes de la banda: {{ i.integrantes }}</p>
-                        {% endif %}
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                <div class="card col-12 mb-3 mx-auto">
+                    <div class="row g-0">
+                        <div class="col-md-4 text-center">
+                            <img src="{{ url_for('static', filename='/img/')+ i.obtenerNombre() + '.jpg' }}" class="img-fluid rounded mx-auto d-block" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ i.obtenerNombre() }}</h5>
+                                <p class="card-text">Genero: {{ i.obtenerGenero().obtenerNombre().capitalize() }}</p>
+                                {%if i.obtenerTipo() == "solista" %}
+                                <p class="card-text">Cantante Solista</p>
+                                {% else %}<!-- Trigger the modal with a button -->
+                                <p class="card-text">Integrantes de la banda</p>
+                                {%for j in i.obtenerIntegrantes()%}
+                                <p class="card-text">{{ j.obtenerNombre() + " | " + j.obtenerInstrumentos()}}</p>
+                                {%endfor%}
+                                {% endif %}
+                            </div>
+                        </div>
                     </div>
                 </div>
                 {%endfor%}
