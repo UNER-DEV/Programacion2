@@ -32,27 +32,27 @@ class Biblioteca:
         return Biblioteca.artistas
 
     def obtenerCanciones(orden=None, reverso=False):
-        if isinstance(orden, str):
-            if orden == 'nombre':
-                pass
-            elif orden == 'artista':
-                pass
+        # if isinstance(orden, str):
+        #     if orden == 'nombre':
+        #         pass
+        #     elif orden == 'artista':
+        #         pass
         return Biblioteca.canciones
 
     def obtenerAlbumes(orden=None, reverso=False):
-        if isinstance(orden, str):
-            if orden == 'nombre':
-                pass
-            elif orden == 'artista':
-                pass
-            elif orden == 'anio':
-                pass
+        # if isinstance(orden, str):
+        #     if orden == 'nombre':
+        #         pass
+        #     elif orden == 'artista':
+        #         pass
+        #     elif orden == 'anio':
+        #         pass
         return Biblioteca.albumes
 
     def obtenerGeneros(orden=None, reverso=False):
-        if isinstance(orden, str):
-            if orden == 'nombre':
-                pass
+        # if isinstance(orden, str):
+        #     if orden == 'nombre':
+        #         pass
         return Biblioteca.generos
     
     def buscarArtista(id):
@@ -113,11 +113,15 @@ class Biblioteca:
                 Biblioteca.artistas.append(artist)
         #Canciones
         for cancion in lista["canciones"]:
-            song = Cancion(cancion["id"], cancion["nombre"], Biblioteca.buscarArtista(cancion["artista"]))
+            song = Cancion(cancion["id"], cancion["nombre"], Biblioteca.buscarArtista(cancion["artista"]),None)
             if(song not in Biblioteca.canciones):
                 Biblioteca.canciones.append(song)
         #Albumes
         for album in lista["albumes"]:
-            alb = Album(album["id"], Biblioteca.buscarArtista(album["artista"]), album["nombre"], album["anio"], Biblioteca.buscarGenero(album["genero"]), Biblioteca.obtenerCanciones())
+            cancionesAlbum = []
+            for cancion in album["canciones"]:
+                Biblioteca.buscarCancion(cancion["id"]).establecerOrden(str(cancion["orden"]))
+                cancionesAlbum.append(Biblioteca.buscarCancion(cancion["id"]))
+            alb = Album(album["id"], Biblioteca.buscarArtista(album["artista"]), album["nombre"], album["anio"], Biblioteca.buscarGenero(album["genero"]), cancionesAlbum)
             if(alb not in Biblioteca.albumes):
-                Biblioteca.generos.append(alb)
+                Biblioteca.albumes.append(alb)

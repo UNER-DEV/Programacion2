@@ -4,10 +4,11 @@ import json
 class Cancion:
     
     # método de inicialización
-    def __init__(self, id, nombre, artista):
+    def __init__(self, id, nombre, artista,orden):
         self.__id = id
         self.__nombre = nombre
         self.__artista = artista
+        self.__orden = orden
 
     # comandos
     def establecerId(self, id):
@@ -18,6 +19,8 @@ class Cancion:
         
     def establecerArtista(self, artista):
         self.__artista = artista
+    def establecerOrden(self, orden):
+        self.__orden = orden
 
     #consultas
     def obtenerId(self):
@@ -28,6 +31,8 @@ class Cancion:
         
     def obtenerArtista(self):
         return self.__artista
+    def obtenerOrden(self):
+        return self.__orden
 
     def __eq__(self, other):
         return self.__id == other.obtenerId()

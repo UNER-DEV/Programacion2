@@ -18,14 +18,18 @@ def getArtistas():
     Biblioteca.inicializar()
     try:
         data = Biblioteca.artistas
-        print(data)
     except:
         print("JSON Vacio")
     return render_template('artistas.html',data=data, len = len(data))
 
 @app.get("/api/albumes")
 def getAlbums():
-    return render_template('albums.html')
+    Biblioteca.inicializar()
+    try:
+        data = Biblioteca.albumes
+    except:
+        print("JSON Vacio")
+    return render_template('albums.html', data = data , len =len(data))
 
 @app.get("/api/canciones")
 def getCanciones():
