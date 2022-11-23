@@ -20,12 +20,12 @@
                 <div class="col g-4">
                 <div class="card mb-3 mx-auto paddingUnset">
                     <div class="card-header">
-                        La podes encontrar en el album fuck
+                        La podes encontrar en el album {{i.obtenerAlbum().obtenerNombre()}}
                     </div>
                     <div class="card-body">
                         <blockquote class="blockquote mb-0">
                             <p>{{ i.obtenerNombre() }}</p>
-                            <footer class="blockquote-footer">Artista: {{ i.obtenerArtista().obtenerNombre() }}</footer>
+                            <footer class="blockquote-footer">Artista: {{i.obtenerArtista().obtenerNombre()}}</footer>
                         </blockquote>
                     </div>
                 </div>
