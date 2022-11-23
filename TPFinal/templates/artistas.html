@@ -8,16 +8,18 @@
             <div class="row row-cols-2 align-items-center mb-3">
                 <div class="col"><h3>Listado de Artistas</h3></div>
                 <div class="col">
-                    <form class="mb-lg-0" role="search">
+                    <form class="mb-lg-0" role="search" method="post" action="{{url_for('searchArtistas')}}">
                         <div class="d-flex align-items-center">
-                            <input type="search" class="form-control bg-sucess me-3" placeholder="Search..." aria-label="Search">
-                            <a class="text-end" type="submit">
+                            <input type="search" name="id" class="form-control bg-sucess me-3"
+                                   placeholder="Search..." aria-label="Search">
+                            <button class="text-end" type="submit">
                                 <i class="btn btn-light  bi bi-search"></i>
-                            </a></div>
+                            </button></div>
                     </form>
                 </div>
             </div>
             <div class="row">
+                {%if len != 0 %}
                 {%for i in data%}
                 <div class="card col-12 mb-3 mx-auto paddingUnset text-dark rounded">
                     <div class="row g-0">
@@ -107,6 +109,11 @@
                     </div>
                 </div>
                 {%endfor%}
+                {%else%}
+                <div class="col">
+                    <h3>No existe ese Artista</h3>
+                </div>
+                {%endif%}
             </div>
         </div>
     </div>

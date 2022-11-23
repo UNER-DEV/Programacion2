@@ -16,27 +16,64 @@ def index():
 @app.get("/api/artistas")
 def getArtistas():
     try:
+        Biblioteca.inicializar()
         data = Biblioteca.obtenerArtistas()
     except:
         print("JSON Vacio")
-    return render_template('artistas.html',data=data)
+    return render_template('artistas.html',data=data,len=len(data))
 
 @app.get("/api/albumes")
 def getAlbums():
     try:
+        Biblioteca.inicializar()
         data = Biblioteca.obtenerAlbumes()
     except:
         print("JSON Vacio")
-    return render_template('albums.html', data = data )
+    return render_template('albums.html', data = data,len=len(data) )
 
 @app.get("/api/canciones")
 def getCanciones():
     try:
+        Biblioteca.inicializar()
         data = Biblioteca.obtenerCanciones()
     except:
         print("JSON Vacio")
-    return render_template('canciones.html', data = data)
+    return render_template('canciones.html', data = data, len=len(data))
 
+@app.post("/api/canciones")
+def searchCanciones():
+    data= []
+    id = request.form["id"]
+    try:
+        Biblioteca.inicializar()
+        if(id!=None):
+            data.append(Biblioteca.buscarCancion(id))
+    except:
+        print("JSON Vacio")
+    return render_template('canciones.html', data = data, len=len(data))
+
+@app.post("/api/albumes")
+def searchAlbumes():
+    data= []
+    id = request.form["id"]
+    try:
+        Biblioteca.inicializar()
+        if(id!=None):
+            data.append(Biblioteca.buscarAlbum(id))
+    except:
+        print("JSON Vacio")
+    return render_template('albums.html', data = data, len=len(data))
+
+@app.post("/api/artistas")
+def searchArtistas():
+    data= []
+    id = request.form["id"]
+    try:
+        Biblioteca.inicializar()
+        data.append(Biblioteca.buscarArtista(id))
+    except:
+        print("JSON Vacio")
+    return render_template('artistas.html', data = data, len=len(data))
 
 if __name__ == '__main__':
     Biblioteca.inicializar()
