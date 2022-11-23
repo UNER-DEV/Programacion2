@@ -46,6 +46,9 @@
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
+                                                    {%for j in i.obtenerAlbumes()%}
+                                                        <p class="card-text">{{j.obtenerNombre()}}</p>
+                                                    {%endfor%}
                                                 </div>
                                             </div>
                                         </div>
@@ -73,6 +76,9 @@
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
+                                                {%for j in i.obtenerAlbumes()%}
+                                                    <p class="card-text">{{j.obtenerNombre()}}</p>
+                                                {%endfor%}
                                             </div>
                                         </div>
                                     </div>
