@@ -20,7 +20,7 @@ def getArtistas():
         data = Biblioteca.artistas
     except:
         print("JSON Vacio")
-    return render_template('artistas.html',data=data, len = len(data))
+    return render_template('artistas.html',data=data)
 
 @app.get("/api/albumes")
 def getAlbums():
@@ -29,7 +29,7 @@ def getAlbums():
         data = Biblioteca.albumes
     except:
         print("JSON Vacio")
-    return render_template('albums.html', data = data , len =len(data))
+    return render_template('albums.html', data = data )
 
 @app.get("/api/canciones")
 def getCanciones():
@@ -38,7 +38,7 @@ def getCanciones():
         data = Biblioteca.canciones
     except:
         print("JSON Vacio")
-    return render_template('canciones.html', data = data, len = len(data))
+    return render_template('canciones.html', data = data)
 
 
 if __name__ == '__main__':

@@ -1,5 +1,5 @@
 import json
-
+from biblioteca import Biblioteca
 
 class Cancion:
     
@@ -32,7 +32,7 @@ class Cancion:
         return self.__nombre
         
     def obtenerArtista(self):
-        return self.__artista
+        return Biblioteca.buscarArtista(self.__artista)
     def obtenerOrden(self):
         return self.__orden
     def obtenerAlbum(self):
