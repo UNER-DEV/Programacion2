@@ -19,7 +19,7 @@
                                 <p class="card-text">Genero: {{ i.obtenerGenero().obtenerNombre().capitalize() }}</p>
                                 <p class="card-text">Canciones:</p>
                                 {%for j in i.obtenerCanciones()%}
-                                <p class="card-text">{{ j.obtenerOrden()+ ") " +j.obtenerNombre()   }}</p>
+                                <p class="card-text">{{ j.obtenerNombre()   }}</p>
                                 {%endfor%}
                             </div>
                 </div>

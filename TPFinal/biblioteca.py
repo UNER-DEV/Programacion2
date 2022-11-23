@@ -121,13 +121,9 @@ class Biblioteca:
                 Biblioteca.canciones.append(song)
         #Albumes
         for album in lista["albumes"]:
-            cancionesAlbum = []
-            for cancion in album["canciones"]:
-                Biblioteca.buscarCancion(cancion["id"]).establecerOrden(str(cancion["orden"]))
-                cancionesAlbum.append(Biblioteca.buscarCancion(cancion["id"]))
-            alb = models.album.Album(album["id"], album["artista"], album["nombre"], album["anio"], album["genero"], cancionesAlbum)
-            for cancion in cancionesAlbum:
-                cancion.establecerAlbum(alb)
+            alb = models.album.Album(album["id"], album["artista"], album["nombre"], album["anio"], album["genero"], album["canciones"])
+            # for cancion in cancionesAlbum:
+            #     cancion.establecerAlbum(alb)
             if(alb not in Biblioteca.albumes):
                 Biblioteca.albumes.append(alb)
 
