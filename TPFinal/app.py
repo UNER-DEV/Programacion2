@@ -15,30 +15,27 @@ def index():
 
 @app.get("/api/artistas")
 def getArtistas():
-    Biblioteca.inicializar()
     try:
-        data = Biblioteca.artistas
+        data = Biblioteca.obtenerArtistas()
     except:
         print("JSON Vacio")
-    return render_template('artistas.html',data=data, len = len(data))
+    return render_template('artistas.html',data=data)
 
 @app.get("/api/albumes")
 def getAlbums():
-    Biblioteca.inicializar()
     try:
-        data = Biblioteca.albumes
+        data = Biblioteca.obtenerAlbumes()
     except:
         print("JSON Vacio")
-    return render_template('albums.html', data = data , len =len(data))
+    return render_template('albums.html', data = data )
 
 @app.get("/api/canciones")
 def getCanciones():
-    Biblioteca.inicializar()
     try:
-        data = Biblioteca.canciones
+        data = Biblioteca.obtenerCanciones()
     except:
         print("JSON Vacio")
-    return render_template('canciones.html', data = data, len = len(data))
+    return render_template('canciones.html', data = data)
 
 
 if __name__ == '__main__':

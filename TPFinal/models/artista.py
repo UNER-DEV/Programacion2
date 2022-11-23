@@ -1,34 +1,29 @@
 import json
 
+import biblioteca
 
 class Artista:
 
     # método de inicialización
-    def __init__(self,id, nombre, tipo, genero, albumes, canciones):
+    def __init__(self, id, nombre, tipo, genero):
         self.__id = id
         self.__nombre = nombre
         self.__tipo = tipo
         self.__genero = genero
-        self.__albumes = albumes
-        self.__canciones = canciones
 
     # comandos
-    def establecerId(self, id):
-        self.__id = id
+
     def establecerNombre(self, nombre):
         self.__nombre = nombre
     def establecerTipo(self, tipo):
         self.__tipo = tipo
     def establecerGenero(self, genero):
         self.__genero = genero
-    def establecerAlbumes(self, albumes):
-        self.__albumes = albumes
-    def establecerCanciones(self, canciones):
-        self.__canciones = canciones
 
     #consultas
     def obtenerId(self):
         return self.__id
+
     def obtenerNombre(self):
         return self.__nombre
 
@@ -36,13 +31,21 @@ class Artista:
         return self.__tipo
 
     def obtenerGenero(self):
-        return self.__genero
+        return biblioteca.Biblioteca.buscarGenero(self.__genero)
 
     def obtenerAlbumes(self):
-        return self.__albumes
+        albumList= []
+        for album in biblioteca.Biblioteca.obtenerAlbumes():
+            if(self == album.obtenerArtista()):
+                albumList.append(album)
+        return albumList
 
     def obtenerCanciones(self):
-        return self.__canciones
+        cancionesList= []
+        for cancion in biblioteca.Biblioteca.obtenerCanciones():
+            if(self == cancion.obtenerArtista()):
+                cancionesList.append(cancion)
+        return cancionesList
 
     def __str__(self):
         return '[El '+ str(self.__tipo) + ' ' + str(self.__nombre) +', de genero ' + str(self.__genero) + ']'
@@ -57,18 +60,14 @@ class Artista:
         return {
             "nombre": self.obtenerNombre(),
             "tipo": self.obtenerTipo(),
-            "genero": self.obtenerGenero().obtenerNombre(),
-            "albumes": None, #self._mapearAlbumes(),
-            "canciones": 0 #len(self.obtenerCanciones())
+            "genero": self.obtenerGenero().obtenerNombre()
         }
 
     def convertirAJSONFull(self):
         return {
             "nombre": self.obtenerNombre(),
             "tipo": self.obtenerTipo(),
-            "genero": self.obtenerGenero().obtenerNombre(),
-            "albumes": None, #self._mapearAlbumes(),
-            "canciones": None #self._mapearCanciones()
+            "genero": self.obtenerGenero().obtenerNombre()
         }
 
     def _mapearAlbumes(self):
