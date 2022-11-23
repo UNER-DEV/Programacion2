@@ -2,12 +2,15 @@
 import os
 import json
 
+import models.genero
+
+
 # modelos
-from models.artista import Artista
+# from models.artista import Artista
 from models.banda import Banda
-from models.cancion import Cancion
-from models.album import Album
-from models.genero import Genero
+# from models.cancion import Cancion
+# from models.album import Album
+# from models.genero import Genero
 from models.integrante import Integrante
 
 class Biblioteca:
@@ -97,31 +100,30 @@ class Biblioteca:
     def __convertirJsonAListas(lista):
         #Generos
         for genero in lista["generos"]:
-            genre = Genero(genero["id"],genero["nombre"])
+            genre = models.genero.Genero(genero["id"],genero["nombre"])
             if(genre not in Biblioteca.generos):
                 Biblioteca.generos.append(genre)
         #Artistas
         for artista in lista["artistas"]:
             if(artista["tipo"] == "solista"):
-                artist = Artista(artista["id"], artista["nombre"], artista["tipo"], Biblioteca.buscarGenero(artista["genero"]), None, None)
+                artist = models.artista.Artista(artista["id"], artista["nombre"], artista["tipo"], Biblioteca.buscarGenero(artista["genero"]), None, None)
             else:
                 integrantes = []
                 for integrante in artista["integrantes"]:
                     integrantes.append(Integrante(integrante["nombre"], integrante["instrumentos"]))
-                artist = Banda(artista["id"], artista["nombre"], artista["tipo"], Biblioteca.buscarGenero(artista["genero"]), integrantes, None, None)
+                artist = models.banda.Banda(artista["id"], artista["nombre"], artista["tipo"], Biblioteca.buscarGenero(artista["genero"]), integrantes, None, None)
             if(artist not in Biblioteca.artistas):
                 Biblioteca.artistas.append(artist)
         #Canciones
         for cancion in lista["canciones"]:
-            song = Cancion(cancion["id"], cancion["nombre"], Biblioteca.buscarArtista(cancion["artista"]),None)
+            song = models.cancion.Cancion(cancion["id"], cancion["nombre"], cancion["artista"], None, None)
             if(song not in Biblioteca.canciones):
                 Biblioteca.canciones.append(song)
         #Albumes
         for album in lista["albumes"]:
-            cancionesAlbum = []
-            for cancion in album["canciones"]:
-                Biblioteca.buscarCancion(cancion["id"]).establecerOrden(str(cancion["orden"]))
-                cancionesAlbum.append(Biblioteca.buscarCancion(cancion["id"]))
-            alb = Album(album["id"], Biblioteca.buscarArtista(album["artista"]), album["nombre"], album["anio"], Biblioteca.buscarGenero(album["genero"]), cancionesAlbum)
+            alb = models.album.Album(album["id"], album["artista"], album["nombre"], album["anio"], album["genero"], album["canciones"])
+            # for cancion in cancionesAlbum:
+            #     cancion.establecerAlbum(alb)
             if(alb not in Biblioteca.albumes):
                 Biblioteca.albumes.append(alb)
+

@@ -2,5 +2,37 @@
 {%block title%}Canciones{%endblock%}
 
 {%block body%}
-<h3> Esta es el listado de los canciones</h3>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col col-10 align-items-center">
+            <div class="row align-items-center">
+                <h3 class="col-8">Listado de Canciones</h3>
+                <form class="col-4 mb-3 align-items-center" role="search">
+                    <div class="d-flex justify-items-around">
+                        <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+                        <a class="text-dark justify-self-center" type="submit" >
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </a></div>
+                </form>
+            </div>
+            <div class="row row-cols-2">
+                {%for i in data%}
+                <div class="col g-4">
+                <div class="card mb-3 mx-auto paddingUnset">
+                    <div class="card-header">
+                        La podes encontrar en el album fuck
+                    </div>
+                    <div class="card-body">
+                        <blockquote class="blockquote mb-0">
+                            <p>{{ i.obtenerNombre() }}</p>
+                            <footer class="blockquote-footer">Artista: {{ i.obtenerArtista().obtenerNombre() }}</footer>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+                {%endfor%}
+            </div>
+        </div>
+    </div>
+</div>
 {%endblock%}

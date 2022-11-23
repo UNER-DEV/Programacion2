@@ -1,5 +1,5 @@
 import json
-
+from biblioteca import Biblioteca
 class Album:
 
     # método de inicialización
@@ -35,7 +35,7 @@ class Album:
         return self.__id
         
     def obtenerArtista(self):
-        return self.__artista
+        return Biblioteca.buscarArtista(self.__artista)
 
     def obtenerNombre(self):
         return self.__nombre
@@ -44,10 +44,13 @@ class Album:
         return self.__anio
 
     def obtenerGenero(self):
-        return self.__genero
+        return Biblioteca.buscarGenero(self.__genero)
 
     def obtenerCanciones(self):
-        return self.__canciones
+        cancionesList= []
+        for cancion in self.__canciones:
+            cancionesList.append(Biblioteca.buscarCancion(cancion["id"]))
+        return cancionesList
 
     def __eq__(self, other):
         return self.__id == other.obtenerId()
