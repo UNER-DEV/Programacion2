@@ -1,29 +1,20 @@
 import json
-
-
+import biblioteca
 class Cancion:
     
     # método de inicialización
-    def __init__(self, id, nombre, artista,orden,album):
+    def __init__(self, id, nombre, artista):
         self.__id = id
         self.__nombre = nombre
         self.__artista = artista
-        self.__orden = orden
-        self.__album = album
 
     # comandos
-    def establecerId(self, id):
-        self.__id = id
-        
     def establecerNombre(self, nombre):
         self.__nombre = nombre
         
     def establecerArtista(self, artista):
         self.__artista = artista
-    def establecerOrden(self, orden):
-        self.__orden = orden
-    def establecerAlbum(self, album):
-        self.__album = album
+
     #consultas
     def obtenerId(self):
         return self.__id
@@ -32,11 +23,14 @@ class Cancion:
         return self.__nombre
         
     def obtenerArtista(self):
-        return self.__artista
-    def obtenerOrden(self):
-        return self.__orden
+        return biblioteca.Biblioteca.buscarArtista(self.__artista)
+
     def obtenerAlbum(self):
-        return self.__album
+        for album in biblioteca.Biblioteca.obtenerAlbumes():
+            for cancion in album.obtenerCanciones():
+                if(self.__id == cancion.obtenerId()):
+                    return album
+        return None
 
     def __eq__(self, other):
         return self.__id == other.obtenerId()
@@ -52,6 +46,6 @@ class Cancion:
             "artista": self.obtenerArtista().obtenerNombre(),
             "album": self.obtenerAlbum().obtenerNombre()
         }
-        
+
     def convertirAJSONFull(self):
         return self.convertirAJSON()

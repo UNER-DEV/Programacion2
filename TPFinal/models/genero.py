@@ -8,9 +8,6 @@ class Genero:
         self.__nombre = nombre
 
     # comandos
-    def establecerId(self, id):
-        self.__id = id
-
     def establecerNombre(self, nombre):
         self.__nombre = nombre
 
