@@ -5,33 +5,46 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col col-10 align-items-center">
-            <div class="row align-items-center">
-                <h3 class="col-8">Listado de Canciones</h3>
-                <form class="col-4 mb-3 align-items-center" role="search">
-                    <div class="d-flex justify-items-around">
-                        <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-                        <a class="text-dark justify-self-center" type="submit" >
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </a></div>
-                </form>
-            </div>
-            <div class="row row-cols-2">
-                {%for i in data%}
-                <div class="col g-4">
-                <div class="card mb-3 mx-auto paddingUnset">
-                    <div class="card-header">
-                        La podes encontrar en el album fuck
-                    </div>
-                    <div class="card-body">
-                        <blockquote class="blockquote mb-0">
-                            <p>{{ i.obtenerNombre() }}</p>
-                            <footer class="blockquote-footer">Artista: {{ i.obtenerArtista().obtenerNombre() }}</footer>
-                        </blockquote>
-                    </div>
+            <div class="row row-cols-2 align-items-center">
+                <div class="col"><h3 class="text-white fw-semibold">Listado de Canciones</h3></div>
+                <div class="col">
+                    <form class="mb-lg-0" role="search" method="post" action="{{url_for('searchCanciones')}}">
+                        <div class="d-flex align-items-center">
+                            <input type="search" name="id" class="form-control bg-sucess me-3"
+                                   placeholder="Search..." aria-label="Search">
+                            <button class="text-end" type="submit">
+                                <i class="btn btn-light  bi bi-search"></i>
+                            </button></div>
+                    </form>
                 </div>
             </div>
+
+            <div class="row row-cols-2">
+                {%if len != 0 %}
+                {%for i in data%}
+                <div class="col g-4">
+                    <div class="card mb-3 mx-auto paddingUnset">
+                        <div class="card-header">
+                            La podes encontrar en el album {{i.obtenerAlbum().obtenerNombre()}}
+                        </div>
+                        <div class="card-body">
+                            <blockquote class="blockquote mb-0">
+                                <p>{{ i.obtenerNombre() }}</p>
+                                <footer class="blockquote-footer">Artista: {{i.obtenerArtista().obtenerNombre()}}
+                                </footer>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
                 {%endfor%}
+                {%else%}
+                <div class="col">
+                    <h3>No existe esa cancion</h3>
+                </div>
+                {%endif%}
             </div>
+
+
         </div>
     </div>
 </div>

@@ -2,36 +2,118 @@
 {%block title%}Artistas{%endblock%}
 
 {%block body%}
-<div class="container">
+<div class="col-8 m-auto p-3 rounded" id="element">
     <div class="row justify-content-center">
         <div class="col col-10 align-items-center">
-            <div class="row ">
-                <h3>Listado de artistas</h3>
+            <div class="row row-cols-2 align-items-center mb-3">
+                <div class="col"><h3>Listado de Artistas</h3></div>
+                <div class="col">
+                    <form class="mb-lg-0" role="search" method="post" action="{{url_for('searchArtistas')}}">
+                        <div class="d-flex align-items-center">
+                            <input type="search" name="id" class="form-control bg-sucess me-3"
+                                   placeholder="Search..." aria-label="Search">
+                            <button class="text-end" type="submit">
+                                <i class="btn btn-light  bi bi-search"></i>
+                            </button></div>
+                    </form>
+                </div>
             </div>
             <div class="row">
+                {%if len != 0 %}
                 {%for i in data%}
-                <div class="card col-12 mb-3 mx-auto paddingUnset">
+                <div class="card col-12 mb-3 mx-auto paddingUnset text-dark rounded">
                     <div class="row g-0">
                         <div class="col-md-4 text-center">
                             <img src="{{ url_for('static', filename='/img/')+ i.obtenerNombre() + '.jpg' }}" class="img-fluid rounded mx-auto d-block" alt="...">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
-                                <h5 class="card-title">{{ i.obtenerNombre() }}</h5>
-                                <p class="card-text">Genero: {{ i.obtenerGenero().obtenerNombre().capitalize() }}</p>
+                                <h1 class="card-title py-3">{{ i.obtenerNombre() }}</h1>
+                                <h3 class="card-text">Genero: {{ i.obtenerGenero().obtenerNombre().capitalize() }}</h3>
                                 {%if i.obtenerTipo() == "solista" %}
-                                <p class="card-text">Cantante Solista</p>
+
+                                    <p class="card-text">Solista</p>
+
+                                    <!-- Boton albumes -->
+                                    <button type="button" class="btn" id="element" data-bs-toggle="modal" data-bs-target="#Modal{{i.obtenerId()}}">
+                                        Ver &Aacute;lbumes
+                                    </button>
+
+                                    <!-- Modal Albumes -->
+                                    <div class="modal fade" id="Modal{{i.obtenerId()}}" tabindex="-1" aria-labelledby="ModalAlbumesLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="ModalAlbumesLabel">&Aacute;lbumes de: {{ i.obtenerNombre() }}</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    {%for j in i.obtenerAlbumes()%}
+                                                        <p class="card-text">{{j.obtenerNombre()}}</p>
+                                                    {%endfor%}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
                                 {% else %}<!-- Trigger the modal with a button -->
-                                <p class="card-text">Integrantes de la banda</p>
-                                {%for j in i.obtenerIntegrantes()%}
-                                <p class="card-text">{{ j.obtenerNombre() + " | " + j.obtenerInstrumentos()}}</p>
-                                {%endfor%}
+                                
+                                <p class="card-text">Banda</p>
+
+                                <!-- Boton albumes -->
+                                <button type="button" class="btn" id="element" data-bs-toggle="modal" data-bs-target="#ModalAlbum{{i.obtenerId()}}">
+                                    Ver &Aacute;lbumes
+                                </button>
+                                <!-- Boton integrantes -->
+                                <button type="button" class="btn" id="element" data-bs-toggle="modal" data-bs-target="#ModalIntegrantes{{i.obtenerId()}}">
+                                    Ver Integrantes
+                                </button>
+
+                                <!-- Modal Albumes -->
+                                <div class="modal fade" id="ModalAlbum{{i.obtenerId()}}" tabindex="-1" aria-labelledby="ModalAlbumesLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="ModalAlbumesLabel">&Aacute;lbumes de: {{ i.obtenerNombre() }}</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                {%for j in i.obtenerAlbumes()%}
+                                                    <p class="card-text">{{j.obtenerNombre()}}</p>
+                                                {%endfor%}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Modal Integrantes -->
+                                <div class="modal fade" id="ModalIntegrantes{{i.obtenerId()}}" tabindex="-1" aria-labelledby="ModalIntegrantesLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="ModalIntegrantesLabel">Integrantes de: {{ i.obtenerNombre() }}</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                {%for j in i.obtenerIntegrantes()%}
+                                                <p class="card-text">{{ j.obtenerNombre() + " | " + j.obtenerInstrumentos()}}</p>
+                                                {%endfor%}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 {% endif %}
                             </div>
                         </div>
                     </div>
                 </div>
                 {%endfor%}
+                {%else%}
+                <div class="col">
+                    <h3>No existe ese Artista</h3>
+                </div>
+                {%endif%}
             </div>
         </div>
     </div>
