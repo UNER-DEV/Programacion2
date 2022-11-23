@@ -2,19 +2,28 @@
 {%block title%}Albums{%endblock%}
 
 {%block body%}
-
 <div class="col-8 m-auto p-3 rounded" id="element">
     <div class="row justify-content-center">
         <div class="col col-10 align-items-center ">
-            <div class="row">
-                <h1 class="py-3">Listado de Albums</h1>
-                <hr>
+            <div class="row row-cols-2 align-items-center">
+                <div class="col"><h3>Listado de Albums</h3></div>
+                <div class="col">
+                    <form class="mb-lg-0" role="search">
+                        <div class="d-flex align-items-center">
+                            <input type="search" class="form-control bg-sucess me-3" placeholder="Search..."
+                                   aria-label="Search">
+                            <a class="text-end" type="submit">
+                                <i class="btn btn-light  bi bi-search"></i>
+                            </a></div>
+                    </form>
+                </div>
             </div>
             <div class="row row-cols-3">
                 {%for i in data%}
                 <div class="col g-4">
                     <div class="card mb-3 mx-auto paddingUnset text-dark rounded">
-                        <img src="{{ url_for('static', filename='/img/')+ i.obtenerNombre() + '.jpg' }}" class="img-fluid mx-auto d-block mb-3" alt="...">
+                        <img src="{{ url_for('static', filename='/img/')+ i.obtenerNombre() + '.jpg' }}"
+                             class="img-fluid mx-auto d-block mb-3" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">{{ i.obtenerNombre() }}</h5>
                             <p class="card-text">Artista: {{ i.obtenerArtista().obtenerNombre() }}</p>
@@ -22,27 +31,31 @@
                             <!--<p class="card-text">Canciones:</p>-->
 
                             <!-- Boton lista de canciones -->
-                            <button type="button" class="btn" id="element" data-bs-toggle="modal" data-bs-target="#ModalCanciones">
+                            <button type="button" class="btn" id="element" data-bs-toggle="modal"
+                                    data-bs-target="#ModalCanciones{{i.obtenerArtista().obtenerId()}}">
                                 Ver Lista de Canciones
                             </button>
 
                             <!-- Modal Canciones -->
-                            <div class="modal fade" id="ModalCanciones" tabindex="-1" aria-labelledby="ModalCancionesLabel" aria-hidden="true">
+                            <div class="modal fade" id="ModalCanciones{{i.obtenerArtista().obtenerId()}}" tabindex="-1"
+                                 aria-labelledby="ModalCancionesLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="ModalCancionesLabel">Tracks de: {{ i.obtenerNombre() }}</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            <h5 class="modal-title" id="ModalCancionesLabel">Tracks de: {{
+                                                i.obtenerNombre() }}</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
                                             {%for j in i.obtenerCanciones()%}
-                                            <p class="card-text">{{ j.obtenerOrden()+ ") " +j.obtenerNombre()   }}</p>
+                                            <p class="card-text">{{ j.obtenerOrden()+ ") " +j.obtenerNombre() }}</p>
                                             {%endfor%}
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>

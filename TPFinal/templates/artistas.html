@@ -5,9 +5,17 @@
 <div class="col-8 m-auto p-3 rounded" id="element">
     <div class="row justify-content-center">
         <div class="col col-10 align-items-center">
-            <div class="row">
-                <h1 class="py-3">Listado de artistas</h1>
-                <hr>
+            <div class="row row-cols-2 align-items-center mb-3">
+                <div class="col"><h3>Listado de Artistas</h3></div>
+                <div class="col">
+                    <form class="mb-lg-0" role="search">
+                        <div class="d-flex align-items-center">
+                            <input type="search" class="form-control bg-sucess me-3" placeholder="Search..." aria-label="Search">
+                            <a class="text-end" type="submit">
+                                <i class="btn btn-light  bi bi-search"></i>
+                            </a></div>
+                    </form>
+                </div>
             </div>
             <div class="row">
                 {%for i in data%}
@@ -25,12 +33,12 @@
                                     <p class="card-text">Solista</p>
 
                                     <!-- Boton albumes -->
-                                    <button type="button" class="btn" id="element" data-bs-toggle="modal" data-bs-target="{{ i.obtenerId() }}">
+                                    <button type="button" class="btn" id="element" data-bs-toggle="modal" data-bs-target="#Modal{{i.obtenerId()}}">
                                         Ver &Aacute;lbumes
                                     </button>
 
                                     <!-- Modal Albumes -->
-                                    <div class="modal fade" id="{{ i.obtenerId() }}" tabindex="-1" aria-labelledby="ModalAlbumesLabel" aria-hidden="true">
+                                    <div class="modal fade" id="Modal{{i.obtenerId()}}" tabindex="-1" aria-labelledby="ModalAlbumesLabel" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -48,16 +56,16 @@
                                 <p class="card-text">Banda</p>
 
                                 <!-- Boton albumes -->
-                                <button type="button" class="btn" id="element" data-bs-toggle="modal" data-bs-target="#ModalAlbumes">
+                                <button type="button" class="btn" id="element" data-bs-toggle="modal" data-bs-target="#ModalAlbum{{i.obtenerId()}}">
                                     Ver &Aacute;lbumes
                                 </button>
                                 <!-- Boton integrantes -->
-                                <button type="button" class="btn" id="element" data-bs-toggle="modal" data-bs-target="#ModalIntegrantes">
+                                <button type="button" class="btn" id="element" data-bs-toggle="modal" data-bs-target="#ModalIntegrantes{{i.obtenerId()}}">
                                     Ver Integrantes
                                 </button>
 
                                 <!-- Modal Albumes -->
-                                <div class="modal fade" id="ModalAlbumes" tabindex="-1" aria-labelledby="ModalAlbumesLabel" aria-hidden="true">
+                                <div class="modal fade" id="ModalAlbum{{i.obtenerId()}}" tabindex="-1" aria-labelledby="ModalAlbumesLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -71,7 +79,7 @@
                                 </div>
 
                                 <!-- Modal Integrantes -->
-                                <div class="modal fade" id="ModalIntegrantes" tabindex="-1" aria-labelledby="ModalIntegrantesLabel" aria-hidden="true">
+                                <div class="modal fade" id="ModalIntegrantes{{i.obtenerId()}}" tabindex="-1" aria-labelledby="ModalIntegrantesLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">

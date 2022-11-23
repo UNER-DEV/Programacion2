@@ -78,7 +78,6 @@ class Biblioteca:
         return None
 
 
-
     def buscarGenero(id):
         for genero in Biblioteca.generos:
             genderId = genero.obtenerId()
