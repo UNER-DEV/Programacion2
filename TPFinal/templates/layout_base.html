@@ -17,33 +17,29 @@ TODOS por url ordenar desc o asc
     <link href="{{ url_for('static', filename='/css/all.css') }}" rel="stylesheet"/>
     <link href="{{ url_for('static', filename='/js/bootstrap.min.js') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='/js/jquery-3.5.1.js') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='/js/bootstrap.bundle.min.js') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='/css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='/css/index.css') }}" rel="stylesheet" defer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </head>
 <body>
 <!--Header(Navbar)-->
-<header class="p-2 mb-4 border-bottom bg-navbar">
-    <div class="container">
+<header class="py-3 mb-5" id="static-navbar">
+    <div class="col-8 m-auto">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-            <a class="py-2" href="#" aria-label="home">
-                <img src="{{ url_for('static', filename='/svgs/own/cd.svg') }}" width="24" height="24"
-                     class="d-block mx-auto"/>
+            <a class="py-2 me-3 linkRoute" href="/" aria-label="home" >
+                <img src="{{ url_for('static', filename='/svgs/own/cd.svg') }}" 
+                     class="d-block mx-auto" id="logo"/>
             </a>
-            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="/api/artistas" class="nav-link px-2 text-decoration-none text-white">Artistas</a></li>
-                <li><a href="/api/albumes" class="nav-link px-2 text-decoration-none text-white ">Albums</a></li>
-                <li><a href="/api/canciones" class="nav-link px-2 text-decoration-none text-white ">Canciones</a></li>
+            <ul class="nav col-12 col-lg-auto me-lg-auto justify-content-center mb-md-0">
+                <li><a href="/api/artistas" class="nav-link px-4 text-decoration-none text-white linkRoute">Artistas</a></li>
+                <li><a href="/api/albumes" class="nav-link px-4 text-decoration-none text-white linkRoute">Albums</a></li>
+                <li><a href="/api/canciones" class="nav-link px-4 text-decoration-none text-white linkRoute">Canciones</a></li>
             </ul>
-            <!--FALTA ACOMODAR ICONO SEARCH-->
-            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-                <div class="d-flex align-items-center justify-items-around">
-                <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-                <a class="text-white w-100 me-3 justify-self-center" type="submit">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </a></div>
-            </form>
         </div>
     </div>
 </header> <!--header-end-->
+
 {% block body %}{% endblock %}
 
 </body>
